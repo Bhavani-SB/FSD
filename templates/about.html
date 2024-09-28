@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        section {
+            padding: 50px;
+            background-color: #bebdbdb0;
+            text-align: center;
+            border-radius: 10px;
+            margin: 30px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            max-width: 800px; /* Optional: limits width of sections */
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 1.25rem;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+          <div class="col-md-3 mb-2 mb-md-0">
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+              <img src="static/icon.jpg" alt="Logo" width="100" height="100">
+            </a>
+          </div>
+    
+          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+                <!-- Dropdown for Features -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle px-2" href="#" id="featuresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Features
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="featuresDropdown">
+              <li><a class="dropdown-item" href="#">Feature 1</a></li>
+              <li><a class="dropdown-item" href="#">Feature 2</a></li>
+              <!-- View Reports Link inside the dropdown -->
+              <li><a class="dropdown-item" href="{% url 'view_reports' %}">View Reports</a></li>
+          </ul>
+      </li>
+            <li><a href="{% url 'about' %}" class="nav-link px-2">About</a></li>
+          </ul>
+    
+          <div class="col-md-3 text-end">            
+            <a href="{% url 'login' %}"><button type="button" class="btn btn-outline-primary me-2">Login</button> </a>             
+            <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary">Sign-up</button> </a>        
+          </div>
+        </header>
+      </div>
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Welcome to our website! We are dedicated to providing exceptional service through our platform. Whether you're here to learn more about our offerings or explore opportunities, you've come to the right place.</p>
+            <p>Our goal is to create a space where users can efficiently manage tasks, engage with the platform, and find value in what we offer. We believe in making a difference through innovation and user-centered design.</p>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="container">
+            <h2>Meet the Team</h2>
+            <p>We are a group of passionate individuals working together to bring this project to life.</p>
+            <ul>
+                <li><strong>Bhavani S:</strong> Backend Developer</li>
+                <li><strong>Harini Suba Muppidathi B:</strong> Frontend Developer</li>
+                <li><strong>Monika Sen S:</strong> Tester</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="mission">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p>Our mission is to create a seamless and user-friendly platform that solves everyday problems efficiently. We are committed to delivering high-quality services through constant innovation and attention to detail.</p>
+            <h2>Our Vision</h2>
+            <p>To become a leading platform that empowers users to accomplish their goals with ease and confidence.</p>
+        </div>
+    </section>
+
+    <section id="story">
+        <div class="container">
+            <h2>Our Story</h2>
+            <p>It all began with an idea to simplify task management. Over the past year, our dedicated team has worked tirelessly to bring this project to life. From initial brainstorming sessions to the final product launch, we’ve grown stronger and learned valuable lessons along the way.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+          </ul>
+          <p class="text-center text-body-secondary">&copy; 2024 Company, Inc</p>
+        </footer>
+      </div> 
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
