@@ -17,23 +17,13 @@
     
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-                <!-- Dropdown for Features -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle px-2" href="#" id="featuresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Features
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="featuresDropdown">
-              <li><a class="dropdown-item" href="#">Feature 1</a></li>
-              <li><a class="dropdown-item" href="#">Feature 2</a></li>
-              <!-- View Reports Link inside the dropdown -->
-              <li><a class="dropdown-item" href="{% url 'view_reports' %}">View Reports</a></li>
-          </ul>
-      </li>
+              
+       
             <li><a href="{% url 'about' %}" class="nav-link px-2">About</a></li>
           </ul>
     
           <div class="col-md-3 text-end">            
-            <a href="{% url 'login' %}"><button type="button" class="btn btn-outline-primary me-2">Login</button> </a>             
+                         
             <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary">Sign-up</button> </a>        
           </div>
         </header>
@@ -66,9 +56,8 @@
                 <button type="button" class="btn btn-outline-primary btn-lg px-4 me-md-2">Admin</button>
               </a>
               <!-- You may want to adjust this button's label -->
-              <a href="#">
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">User Login</button>
-              </a>
+              <a href="{% url 'login' %}"><button type="button" class="btn btn-outline-secondary btn-lg px-4">User Login</button> </a>
+              
              
             </div>
           </div>
@@ -79,9 +68,9 @@
       <div class="container">
         <footer class="py-3 my-4">
           <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+            <li class="nav-item"><a href="{% url 'index' %}" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Help</a></li>
+            <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-body-secondary">About</a></li>
           </ul>
           <p class="text-center text-body-secondary">&copy; 2024 Company, Inc</p>
         </footer>

@@ -20,6 +20,7 @@ class appointmentdetail(models.Model):
     age = models.IntegerField()
     reason = models.CharField(max_length=255)
     number= models.IntegerField()
+    email = models.EmailField()
     doctor = models.ForeignKey(Doctordetail, on_delete=models.CASCADE)  # ForeignKey to Doctordetail
 
     def __str__(self):
@@ -30,36 +31,12 @@ class appointmentForm(forms.ModelForm):
         model = appointmentdetail
         fields = ['number'] 
 
-# forms.py
-
 
 class adminloginform(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput, label='Password')
 
 
-class Room(models.Model):
-    room_number = models.CharField(max_length=10)
-    room_type = models.CharField(max_length=20)
-    is_available = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.room_number
 
 
-class Patient(models.Model):
-    patient_name = models.CharField(max_length=100)
-    age = models.IntegerField()
-    ailment = models.TextField()
-    doctor = models.ForeignKey(Doctordetail, on_delete=models.CASCADE)
-    room = models.ForeignKey(Room, on_delete=models.SET_NULL, null=True)
 
-    def __str__(self):
-        return self.patient_name
 
-class Bill(models.Model):
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-    total_amount = models.DecimalField(max_digits=10, decimal_places=2)
-    paid = models.BooleanField(default=False)
-
-    def __str__(self):
-        return f"Bill for {self.patient.patient_name}"
