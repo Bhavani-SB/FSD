@@ -10,33 +10,32 @@ def index(request):
     return render(request, 'index.html')
 
 # Signup view
+
+
 def signup(request):
     if request.method == "POST":
         email = request.POST.get("email")
         password = request.POST.get("password")
         password2 = request.POST.get("password2")
-        if Userdata.objects.filter(email=email).exists():
+        user = Userdata.objects.filter(email=email)
+        if user.exists():
             messages.error(request, "Email already taken")
         elif password != password2:
             messages.error(request, "Passwords do not match")
         else:
             Userdata.objects.create(email=email, password=password)
-            return redirect('login')  
+            return render(request, 'login.html')
     return render(request, 'signup.html')
-# Login view
+
 def login(request):
     if request.method == "POST":
         email = request.POST.get("email")
         password = request.POST.get("password")
-        try:
-            user = Userdata.objects.get(email=email)
-            if check_password(password, user.password):  # Verify password using Django's built-in check
-                request.session['user_id'] = user.id  # Store user ID in session
-                return redirect('main')
-            else:
-                messages.error(request, "Incorrect password")
-        except Userdata.DoesNotExist:
-            messages.error(request, "User not found")
+        user = Userdata.objects.filter(email=email, password=password)
+        if user.exists():
+            return redirect('/main/')
+        else:
+            messages.error(request, "Check your email and password")
     return render(request, 'login.html')
 
 # Main view to show doctors
