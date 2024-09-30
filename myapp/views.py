@@ -71,8 +71,7 @@ def admin_login(request):
         if form.is_valid():
             password = form.cleaned_data['password']
             if password == ADMIN_PASSWORD:
-                request.session['is_admin'] = True  # Store admin session data
-                return redirect('admin_page')
+                return redirect('admin_view')  # Redirect to the admin view
             else:
                 form.add_error('password', 'Incorrect password')
     else:
