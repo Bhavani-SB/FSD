@@ -27,7 +27,7 @@
             <!-- Hidden input for doctor name -->
             <input type="hidden" name="doctor_name" value="{{ doctor_name }}">
 
-            <h3>Booking Appointment with Dr. {{ doctor_name }}</h3> <!-- Display the doctor's name -->
+            <h3>Booking Appointment with  {{ doctor_name }}</h3> <!-- Display the doctor's name -->
 
             <!-- Name field -->
             <div class="mb-3">
@@ -50,8 +50,11 @@
             <!-- Phone number field -->
             <div class="mb-3">
                 <label for="number" class="form-label">Phone number:</label>
-                <input type="tel" id="number" name="number" class="form-control" placeholder="Enter your phone number" required>
+                <input type="tel" id="number" name="number" class="form-control" placeholder="Enter your phone number" 
+                       pattern="[0-9]{10}" maxlength="10" required 
+                       title="Phone number must be 10 digits">
             </div>
+            
 
             <div class="mb-3">
                 <label for="email" class="form-label">Email:</label>

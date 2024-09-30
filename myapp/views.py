@@ -5,6 +5,10 @@ from .models import Userdata, Doctordetail, appointmentdetail
 from .models import adminloginform
 from django.contrib.auth.decorators import login_required
 
+# Appointment booking view
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import Doctordetail, appointmentdetail
 # Home page view
 def index(request):
     return render(request, 'index.html')
@@ -43,16 +47,43 @@ def main(request):
     doctors = Doctordetail.objects.all()
     return render(request, 'main.html', {'doctors': doctors})
 
-# Appointment booking view
+
 def mainn(request):
     if request.method == "POST":
         doctor_name = request.POST.get("doctor_name")
+        name = request.POST.get("name")
+        age = request.POST.get("age")
+        reason = request.POST.get("reason")
+        number = request.POST.get("number")
+        email = request.POST.get("email")
+
         try:
             doctor = Doctordetail.objects.get(doc_name=doctor_name)
-            # Proceed to create the appointment
         except Doctordetail.DoesNotExist:
             messages.error(request, "Doctor not found.")
-            return redirect('mainn')  # or whatever your redirect is
+            return redirect('/mainn/')
+
+        appointment = appointmentdetail.objects.filter(
+            name=name, age=age, reason=reason, number=number, doctor=doctor, email=email
+        )
+        if appointment.exists():
+            messages.error(request, "This appointment already exists.")
+        else:
+            appointmentdetail.objects.create(
+                name=name,
+                age=age,
+                reason=reason,
+                number=number,
+                email=email,
+                doctor=doctor
+            )
+            messages.success(request, "Appointment successfully booked!")
+            return redirect('index')
+
+    # If the request is GET, render the form and pass doctor_name if available
+    doctor_name = request.GET.get("doctor_name", "")  # Provide a default value in case it's missing
+    return render(request, 'mainn.html', {'doctor_name': doctor_name})
+ # or whatever your redirect is
 
 
 # Admin view (requires login)

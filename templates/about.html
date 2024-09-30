@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         section {
@@ -30,26 +32,28 @@
             font-size: 1.25rem;
             margin: 10px 0;
         }
+        #home{
+           justify-content: center;
+           display: flex;
+           padding-right: 45%;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-          <div class="col-md-3 mb-2 mb-md-0">
-            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-              <img src="static/icon.jpg" alt="Logo" width="100" height="100">
-            </a>
-          </div>
+            <div class="col-md-3 mb-2 mb-md-0">
+                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                  <img src="{% static 'icon.jpg' %}" alt="" width="100" height="100">
+                </a>
+            </div>
     
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" id="home">
             <li><a href="{% url 'index'%}" class="nav-link px-2 link-secondary">Home</a></li>
             <li><a href="{% url 'about' %}" class="nav-link px-2">About</a></li>
           </ul>
     
-          <div class="col-md-3 text-end">            
-            <a href="{% url 'login' %}"><button type="button" class="btn btn-outline-primary me-2">Login</button> </a>             
-            <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary">Sign-up</button> </a>        
-          </div>
+         
         </header>
       </div>
     <section id="about">
@@ -66,8 +70,11 @@
             <p>We are a group of passionate individuals working together to bring this project to life.</p>
             <ul>
                 <li><strong>Bhavani S:</strong> Backend Developer</li>
+                <a href="mailto:sb.bhavani.sb@gmail.com">sb.bhavani.sb@gmail.com</a>
                 <li><strong>Harini Suba Muppidathi B:</strong> Frontend Developer</li>
+                <a href="mailto:muthubala0211@gmail.com">muthubala0211@gmail.com</a>
                 <li><strong>Monika Sen S:</strong> Tester</li>
+                <a href="mailto:Senmonika2004@gmail.com">senmonika2004@gmail.com</a>
             </ul>
         </div>
     </section>
@@ -80,6 +87,8 @@
             <p>To become a leading platform that empowers users to accomplish their goals with ease and confidence.</p>
         </div>
     </section>
+
+    
 
     <section id="story">
         <div class="container">
