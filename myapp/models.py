@@ -26,7 +26,7 @@ class appointmentdetail(models.Model):
     doctor = models.ForeignKey(Doctordetail, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Appointment for {self.name} with Dr. {self.doctor.doc_name}"
+        return f"Appointment for {self.name} with {self.doctor.doc_name}"
 
 # Admin login form
 class adminloginform(forms.Form):

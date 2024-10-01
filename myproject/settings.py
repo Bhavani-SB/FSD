@@ -22,7 +22,8 @@ DEBUG = True  # Change to False in production
 
 # settings.py
 
-ALLOWED_HOSTS = ['appointment-booking-system-for-hospital-2vcb.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['appointment-booking-system-for-hospital-2vcb.onrender.com', '127.0.0.1', 'localhost']
+
 
  # Adjust for production
 
