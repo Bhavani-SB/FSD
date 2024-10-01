@@ -21,7 +21,7 @@ class appointmentdetail(models.Model):
     name = models.CharField(max_length=100)
     age = models.IntegerField()
     reason = models.CharField(max_length=255)
-    number = models.CharField(max_length=15) 
+    number = models.CharField(max_length=100) 
     email = models.EmailField()
     doctor = models.ForeignKey(Doctordetail, on_delete=models.CASCADE)
 
