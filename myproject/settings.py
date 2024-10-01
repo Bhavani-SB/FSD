@@ -20,7 +20,10 @@ SECRET_KEY = 'your-secret-key'  # Replace with your actual secret key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True  # Change to False in production
 
-ALLOWED_HOSTS = ['*']
+# settings.py
+
+ALLOWED_HOSTS = ['appointment-booking-system-for-hospital-2vcb.onrender.com', 'localhost']
+
  # Adjust for production
 
 # Application definition
