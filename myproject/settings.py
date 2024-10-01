@@ -20,7 +20,8 @@ SECRET_KEY = 'your-secret-key'  # Replace with your actual secret key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True  # Change to False in production
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # Adjust for production
+ALLOWED_HOSTS = ['*']
+ # Adjust for production
 
 # Application definition
 INSTALLED_APPS = [
