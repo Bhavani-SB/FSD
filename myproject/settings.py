@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'your-secret-key'  # Replace with your actual secret key
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # Change to False in production
+DEBUG = False  # Change to False in production
 
 # settings.py
 
@@ -104,7 +104,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # Static files (CSS, JavaScript, Images)
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
