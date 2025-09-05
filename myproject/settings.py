@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -17,9 +18,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'your-secret-key'  # Replace with your actual secret key
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # Change to False in production
+DEBUG = False  # Change to False in production
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # Adjust for production
+# settings.py
+
+ALLOWED_HOSTS = ['appointment-booking-system-for-hospital-2vcb.onrender.com', '127.0.0.1', 'localhost']
+
+
+ # Adjust for production
 
 # Application definition
 INSTALLED_APPS = [
@@ -91,12 +97,14 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
